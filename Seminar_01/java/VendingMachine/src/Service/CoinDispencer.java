@@ -1,2 +1,4 @@
-package Service;public class CoinDispencer {
+package Service;
+
+public class CoinDispencer {
 }
