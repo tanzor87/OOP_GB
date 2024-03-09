@@ -17,15 +17,15 @@ public class Student extends Person implements Comparable<Student> {
     @Override
     public String toString() {
         return "Student{" +
-                "id=" + id +
-                "Name " + super.getName() +
-                "Age " + super.getAge() +
+                "id = " + id + "," +
+                " Name: " + super.getName() + "," +
+                " Age: " + super.getAge() + "," +
                 '}';
     }
 
     @Override
     public int compareTo(Student o) {
-        System.out.println(super.getName() + " " + o.getName());
+//        System.out.println(super.getName() + " " + o.getName());
         if (o.getAge() == super.getAge()){
 //            return 0;
             if (id == o.id) {
