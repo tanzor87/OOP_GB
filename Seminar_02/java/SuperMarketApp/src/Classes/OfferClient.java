@@ -19,6 +19,10 @@ public class OfferClient extends Actor implements iActorBehaviour, iReturnOrder 
     private static int numbersClientOffer;
 
 
+    /**
+     * Конструктор класса
+     * @param name Имя покупателя
+     */
     public OfferClient(String name) {
         super(name);
         this.idOffer = generalIdOffer;
