@@ -17,7 +17,5 @@ public class App {
 
         magnit.update();
 
-
-
     }
 }
