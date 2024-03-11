@@ -19,7 +19,7 @@ public class Student extends Person implements Comparable<Student> {
         return "Student{" +
                 "id = " + id + "," +
                 " Name: " + super.getName() + "," +
-                " Age: " + super.getAge() + "," +
+                " Age: " + super.getAge() +
                 '}';
     }
 
