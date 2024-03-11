@@ -3,6 +3,7 @@ import Domen.StudentGroup;
 import Domen.StudentSteam;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -63,7 +64,7 @@ public class App {
         StudentGroup group5830 = new StudentGroup(students1, 5830);
         StudentGroup group5831 = new StudentGroup(students2, 5831);
         StudentGroup group5832 = new StudentGroup(students3, 5832);
-        StudentGroup group5833 = new StudentGroup(students3, 5833);
+        StudentGroup group5833 = new StudentGroup(students4, 5833);
 
         List<StudentGroup> groups = new ArrayList<>();
 
@@ -75,11 +76,29 @@ public class App {
         StudentSteam steams = new StudentSteam(groups, 1);
 
 //        System.out.println(steams);
+        Collections.sort(steams.getStudentGroups());
 
         for (StudentGroup steam : steams) {
-            System.out.println(steam);
+            System.out.println("ID group: " + steam.getIdGroup());
+            Collections.sort(steam.getGroup());
+
+            for (Student stud : steam.getGroup()) {
+                System.out.println("\t" + stud);
+            }
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
         }
 
+//        for (StudentGroup steam : steams) {
+//            System.out.println(steam);
+//        }
+//
+//        System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
+//
+//        Collections.sort(steams.getStudentGroups());
+//
+//        for (StudentGroup steam : steams) {
+//            System.out.println(steam);
+//        }
 
 //        for (Student stud : group5830){
 //            System.out.println(stud);
@@ -93,18 +112,6 @@ public class App {
 //            System.out.println(stud);
 //        }
 //
-//        System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
-//
-//        for (Student stud : group5831) {
-//            System.out.println(stud);
-//        }
-//
-//        System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
-//
-//        for (Student stud : group5832) {
-//            System.out.println(stud);
-//        }
-
     }
 
 }
