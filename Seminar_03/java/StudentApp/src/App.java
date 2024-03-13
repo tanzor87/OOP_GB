@@ -1,7 +1,5 @@
 import Controllers.AccountController;
-import Domen.Student;
-import Domen.StudentGroup;
-import Domen.StudentSteam;
+import Domen.*;
 import Services.StudentService;
 
 import java.util.ArrayList;
@@ -95,16 +93,25 @@ public class App {
          */
 
         StudentService service = new StudentService();
-        AccountController controller = new AccountController();
+
+//        AccountController controller = new AccountController();
 
         for (Student s : students3) {
             service.create(s.getName(), s.getAge());
         }
 
-        controller.print(service.getAll());
+        AccountController.print(service.getAll());
         service.sortByFio();
         System.out.println("~~~~~~~~~~~~~~~~~");
-        controller.print(service.getAll());
+        AccountController.print(service.getAll());
+
+
+        Teacher t1 = new Teacher("Sergey", 36, "PhD");
+        Employee e1 = new Employee("Viktor", 55, "Слесарь");
+
+        AccountController.paySalary(t1, 55000);
+        AccountController.paySalary(e1, 45000);
+//        AccountController.paySalary(student3, 5000);
 
 
 //        service.print(service.getAll());
