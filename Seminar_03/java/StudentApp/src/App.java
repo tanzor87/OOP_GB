@@ -1,6 +1,8 @@
+import Controllers.AccountController;
 import Domen.Student;
 import Domen.StudentGroup;
 import Domen.StudentSteam;
+import Services.StudentService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -76,17 +78,40 @@ public class App {
         StudentSteam steams = new StudentSteam(groups, 1);
 
 //        System.out.println(steams);
-        Collections.sort(steams.getStudentGroups());
+//        Collections.sort(steams.getStudentGroups());
+//
+//        for (StudentGroup steam : steams) {
+//            System.out.println("ID group: " + steam.getIdGroup());
+//            Collections.sort(steam.getGroup());
+//
+//            for (Student stud : steam.getGroup()) {
+//                System.out.println("\t" + stud);
+//            }
+//            System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
+//        }
 
-        for (StudentGroup steam : steams) {
-            System.out.println("ID group: " + steam.getIdGroup());
-            Collections.sort(steam.getGroup());
+        /**
+         *  Seminar 4
+         */
 
-            for (Student stud : steam.getGroup()) {
-                System.out.println("\t" + stud);
-            }
-            System.out.println("~~~~~~~~~~~~~~~~~~~~~~");
+        StudentService service = new StudentService();
+        AccountController controller = new AccountController();
+
+        for (Student s : students3) {
+            service.create(s.getName(), s.getAge());
         }
+
+        controller.print(service.getAll());
+        service.sortByFio();
+        System.out.println("~~~~~~~~~~~~~~~~~");
+        controller.print(service.getAll());
+
+
+//        service.print(service.getAll());
+//        service.sortByFio();
+//        System.out.println("~~~~~~~~~~~~~~~~~");
+//        service.print(service.getAll());
+
 
 //        for (StudentGroup steam : steams) {
 //            System.out.println(steam);

@@ -1,7 +1,7 @@
 package Services;
 
+import Domen.PersonComparator;
 import Domen.Student;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +23,17 @@ public class StudentService implements IPersonService<Student>{
         Student student = new Student(name, age);
         count++;
         students.add(student);
+    }
 
+//    @Override
+//    public void print(List<Student> group) {
+//        for (Student student : group){
+//            System.out.println(student);
+//        }
+//    }
+
+    public void sortByFio() {
+        PersonComparator<Student> comparator = new PersonComparator<Student>();
+        students.sort(comparator);
     }
 }

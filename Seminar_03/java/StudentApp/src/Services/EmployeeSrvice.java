@@ -19,4 +19,11 @@ public class EmployeeSrvice implements IPersonService<Employee> {
         employees.add(employee);
 
     }
+
+//    @Override
+//    public void print(List<Employee> group) {
+//        for (Employee employee : group){
+//            System.out.println(employee);
+//        }
+//    }
 }
