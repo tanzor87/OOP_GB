@@ -15,4 +15,16 @@ public class AccountController {
     public static <T extends Worker> void paySalary(T person, int salary){
         System.out.println(person.getName() + ": Выплачена зарплата " + salary + " руб.");
     }
+
+    public static <T extends Person> double averageAge(List<T> personGroup) {
+        double average = 0;
+        for (T person : personGroup){
+            int age = person.getAge();
+            average += age;
+        }
+        average = average / personGroup.size();
+
+        return  average;
+//        System.out.println("Average age = " + mean);
+    }
 }

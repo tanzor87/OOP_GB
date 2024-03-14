@@ -1,6 +1,7 @@
 import Controllers.AccountController;
 import Domen.*;
 import Services.StudentService;
+import Services.TeacherService;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,6 +10,11 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
+
+        /**
+         * Students
+         */
+
         Student student1 = new Student("Ivan", 22);
         Student student2 = new Student("Oleg", 23);
         Student student3 = new Student("Petr", 20);
@@ -100,18 +106,60 @@ public class App {
             service.create(s.getName(), s.getAge());
         }
 
+        System.out.println("~~~~~IPersonService~~~~~~");
+        System.out.println("~~~~~Stedents~~~~~");
         AccountController.print(service.getAll());
         service.sortByFio();
-        System.out.println("~~~~~~~~~~~~~~~~~");
+        System.out.println("~~~~~~~Sorted Students~~~~~~~~");
         AccountController.print(service.getAll());
 
+        /**
+         *  Teachers
+         */
 
         Teacher t1 = new Teacher("Sergey", 36, "PhD");
+        Teacher t2 = new Teacher("Ivan", 39, "Docent");
+        Teacher t3 = new Teacher("Tom", 56, "Doctor");
+        Teacher t4 = new Teacher("Viktor", 30, "PhD student");
+        Teacher t5 = new Teacher("Anna", 37, "PhD");
+        Teacher t6 = new Teacher("Alla", 47, "Doktor");
+        Teacher t7 = new Teacher("Roman", 41, "Docent");
+
+        List<Teacher> teachers = new ArrayList<>();
+
+        teachers.add(t1);
+        teachers.add(t2);
+        teachers.add(t3);
+        teachers.add(t4);
+        teachers.add(t5);
+        teachers.add(t6);
+        teachers.add(t7);
+
+
         Employee e1 = new Employee("Viktor", 55, "Слесарь");
 
-        AccountController.paySalary(t1, 55000);
-        AccountController.paySalary(e1, 45000);
+//        AccountController.paySalary(t1, 55000);
+//        AccountController.paySalary(e1, 45000);
 //        AccountController.paySalary(student3, 5000);
+
+
+        TeacherService teacherService = new TeacherService();
+
+        for (Teacher t : teachers){
+            teacherService.create(t.getName(), t.getAge());
+        }
+
+        System.out.println("-------------------\n" + "~~~~~Teachers~~~~~~");
+        AccountController.print(teacherService.getAll());
+        teacherService.sortByFio();
+        System.out.println("~~~~~~~~Sorted Teachers~~~~~~~~~");
+        AccountController.print(teacherService.getAll());
+        System.out.println("~~~~~Average Age of Teachers~~~~~~");
+        System.out.println("Average Age of Teachers is " +
+                String.format("%.2f", AccountController.averageAge(teacherService.getAll())) +
+                " years");
+
+
 
 
 //        service.print(service.getAll());

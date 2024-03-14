@@ -7,4 +7,17 @@ public class Teacher extends Worker {
         super(name, age);
         this.academicDegree = academicDegree;
     }
+
+    public String getAcademicDegree() {
+        return academicDegree;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher {" +
+                "Name: " + super.getName() +
+                ", Age: " + super.getAge() +
+                ", academicDegree: " + academicDegree +
+                '}';
+    }
 }
