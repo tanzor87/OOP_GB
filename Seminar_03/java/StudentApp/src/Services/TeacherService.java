@@ -6,10 +6,17 @@ import Domen.Teacher;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Класс TeacherService, имплеминтирует интефейс IPersonService
+ */
+
 public class TeacherService implements IPersonService<Teacher> {
     private int count;
     private List<Teacher> teachers;
 
+    /**
+     * Конструктор класса
+     */
     public TeacherService() {
         teachers = new ArrayList<>();
     }
@@ -21,12 +28,14 @@ public class TeacherService implements IPersonService<Teacher> {
 
     @Override
     public void create(String name, int age) {
-//        String ad = ;
         Teacher teacher = new Teacher(name, age, "degree");
         count++;
         teachers.add(teacher);
     }
 
+    /**
+     * Метод сортировки учителей по имени
+     */
     public  void sortByFio() {
         PersonComparator<Teacher> comparator = new PersonComparator<Teacher>();
         teachers.sort(comparator);

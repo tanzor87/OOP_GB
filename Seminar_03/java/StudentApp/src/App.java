@@ -135,13 +135,11 @@ public class App {
         teachers.add(t6);
         teachers.add(t7);
 
-
         Employee e1 = new Employee("Viktor", 55, "Слесарь");
 
 //        AccountController.paySalary(t1, 55000);
 //        AccountController.paySalary(e1, 45000);
 //        AccountController.paySalary(student3, 5000);
-
 
         TeacherService teacherService = new TeacherService();
 
@@ -150,10 +148,12 @@ public class App {
         }
 
         System.out.println("-------------------\n" + "~~~~~Teachers~~~~~~");
+
         AccountController.print(teacherService.getAll());
         teacherService.sortByFio();
         System.out.println("~~~~~~~~Sorted Teachers~~~~~~~~~");
         AccountController.print(teacherService.getAll());
+
         System.out.println("~~~~~Average Age of Teachers~~~~~~");
         System.out.println("Average Age of Teachers is " +
                 String.format("%.2f", AccountController.averageAge(teacherService.getAll())) +
