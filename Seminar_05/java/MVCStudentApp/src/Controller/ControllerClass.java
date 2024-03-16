@@ -1,5 +1,83 @@
 package Controller;
 
-public class ControllerClass {
+import Controller.Interfaces.iGetModel;
+import Controller.Interfaces.iGetView;
+import Model.Domain.Student;
+import Model.ModelClass;
+import View.ViewClass;
 
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Класс контроллера
+ */
+public class ControllerClass {
+    /**
+     * Ссылка на модель
+     */
+//    private ModelClass model;
+    private iGetModel model;
+    /**
+     * Ссылка на View
+     */
+//    private ViewClass view;
+    private iGetView view;
+
+    /**
+     * Буфер
+     */
+    private List<Student> buffer = new ArrayList<>();
+
+    /**
+     * Конструктор класса
+     * @param model
+     * @param view
+     */
+//    public ControllerClass(ModelClass model, ViewClass view) {
+    public ControllerClass(iGetModel model, iGetView view) {
+        this.model = model;
+        this.view = view;
+    }
+
+    private boolean testData(List<Student> students){
+        if (students.size() > 0){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Метод связывает Model и View
+     */
+    public void update(){
+//        MVC
+//        view.printAllStudents(model.getAllStudents());
+
+//        MVP
+        buffer = model.getAllStudents();
+        if (testData(buffer)) {
+            view.printAllStudents(buffer);
+        } else {
+            System.out.println("Список студентов пуст!");
+        }
+    }
+
+    public void run() {
+        Command com = Command.NONE;
+        boolean getNewIteration = true;
+        while (getNewIteration) {
+            String command = view.prompt("Введите команду: ");
+            com = Command.valueOf(command.toUpperCase());
+            switch (com) {
+                case EXIT:
+                    getNewIteration = false;
+                    System.out.println("Выход из программы!");
+                    break;
+                case LIST:
+                    //MVC
+                    view.printAllStudents(model.getAllStudents());
+                    break;
+            }
+        }
+    }
 }

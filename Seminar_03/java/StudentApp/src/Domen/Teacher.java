@@ -12,6 +12,9 @@ public class Teacher extends Worker {
         return academicDegree;
     }
 
+    public void setAcademicDegree(String academicDegree) {
+        this.academicDegree = academicDegree;
+    }
     @Override
     public String toString() {
         return "Teacher {" +
