@@ -1,4 +1,4 @@
-package Domen;
+package Model.Domain;
 
 public class Student extends Person implements Comparable<Student> {
     private int id;
@@ -42,7 +42,5 @@ public class Student extends Person implements Comparable<Student> {
         } else {
             return 1;
         }
-
-//        return o.getAge();
     }
 }

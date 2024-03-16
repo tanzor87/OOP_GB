@@ -1,4 +1,4 @@
-package Domen;
+package Model.Domain;
 
 public class Person {
     private String name;
