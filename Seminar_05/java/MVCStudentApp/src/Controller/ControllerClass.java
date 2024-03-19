@@ -57,6 +57,7 @@ public class ControllerClass {
         buffer = model.getAllStudents();
         if (testData(buffer)) {
             view.printAllStudents(buffer);
+//            view.printAllStudentsEng(buffer);
         } else {
             System.out.println("Список студентов пуст!");
         }
@@ -77,6 +78,15 @@ public class ControllerClass {
                     //MVC
                     view.printAllStudents(model.getAllStudents());
                     break;
+                case DELETE:
+                    String delName = view.nameInput("Введите имя: ");
+                    buffer = model.getAllStudents();
+                    for (Student s : buffer){
+                        if (s.getName().equals(delName)){
+                            buffer.remove(s);
+                        }
+                    }
+                    view.printAllStudents(buffer);
             }
         }
     }

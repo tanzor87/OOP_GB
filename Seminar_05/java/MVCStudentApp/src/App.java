@@ -4,10 +4,14 @@ import Controller.Interfaces.iGetView;
 import Model.Domain.Student;
 import Model.FileModelClass;
 import Model.ModelClass;
+import Model.ModelClassHash;
 import View.ViewClass;
+import View.ViewClassEng;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
@@ -34,6 +38,13 @@ public class App {
         studentList.add(student8);
         studentList.add(student9);
 
+
+//        ModelClass model = new ModelClass(studentList);
+//        ViewClass view = new ViewClass();
+//        ControllerClass controller = new ControllerClass(model, view);
+//        controller.run();
+
+        /*
         FileModelClass fmodel = new FileModelClass("StudentDB.csv");
 //        fmodel.saveAllStudentToFile(studentList);
 
@@ -47,6 +58,21 @@ public class App {
         ControllerClass controller = new ControllerClass(fmodel, view);
 //        controller.update();
         controller.run();
+
+         */
+
+//        iGetModel model = new ModelClass(studentList);
+//        iGetView view = new ViewClassEng();
+//
+//        ControllerClass controller = new ControllerClass(model, view);
+//        controller.update();
+
+        HashMap<Integer, Student> studentsHas = new HashMap<>();
+        ModelClassHash modelHash = new ModelClassHash(studentList, studentsHas);
+
+//        for (Map.Entry<Integer, Student> s : modelHash){
+//
+//        }
 
 
     }
