@@ -3,10 +3,12 @@ package Controller;
 import Controller.Interfaces.iGetModel;
 import Controller.Interfaces.iGetView;
 import Model.Domain.Student;
+import Model.Domain.StudentIterator;
 import Model.ModelClass;
 import View.ViewClass;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -63,6 +65,9 @@ public class ControllerClass {
         }
     }
 
+    /**
+     * Метод позволяющий выполнять какие-либо действия со списком (например выводить список, удалять студента)
+     */
     public void run() {
         Command com = Command.NONE;
         boolean getNewIteration = true;
@@ -81,9 +86,12 @@ public class ControllerClass {
                 case DELETE:
                     String delName = view.nameInput("Введите имя: ");
                     buffer = model.getAllStudents();
-                    for (Student s : buffer){
+
+                    Iterator<Student> it = buffer.iterator();
+                    while (it.hasNext()) {
+                        Student s = it.next();
                         if (s.getName().equals(delName)){
-                            buffer.remove(s);
+                            it.remove();
                         }
                     }
                     view.printAllStudents(buffer);

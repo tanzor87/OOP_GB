@@ -38,6 +38,28 @@ public class App {
         studentList.add(student8);
         studentList.add(student9);
 
+        /**
+         * 1. Сделан вариант класса ViewClassEng с текстом на английском языке, подключен к нему интерфейс iGetView.
+         * 2. Сделан вариант класса ModelClassHash с хранилищем типа HashMap<int,Student>,
+         * подключен к нему интерфейс iGetModel
+         * 3. Добавлена команда DELETE в метод run класса контролер по удалению студента.
+         * Пока удаление студента реализованно по Имени. Так как в данный момент ID студента генерируется
+         * автоматически, то каждый раз при вызове метода printAllStudents ID обновляются, в результате чего мы
+         * получаем новые ID и не овсем ясно, какой номер вводить для удаления какого-либо студента.
+         * Как исправить данный баг, я пока не совсем понимаю, как вариант вводить ID вручную, что на мой взгляд
+         * не совсем рационально. Нужен более рациональный способ.
+         */
+
+        HashMap<Integer, Student> studentsHas = new HashMap<>();
+        ModelClassHash modelHash = new ModelClassHash(studentList, studentsHas);
+        modelHash.studentHas(studentList);
+
+        iGetView view = new ViewClassEng();
+
+        ControllerClass controller = new ControllerClass(modelHash, view);
+        controller.update();
+
+        controller.run();
 
 //        ModelClass model = new ModelClass(studentList);
 //        ViewClass view = new ViewClass();
@@ -66,14 +88,6 @@ public class App {
 //
 //        ControllerClass controller = new ControllerClass(model, view);
 //        controller.update();
-
-        HashMap<Integer, Student> studentsHas = new HashMap<>();
-        ModelClassHash modelHash = new ModelClassHash(studentList, studentsHas);
-
-//        for (Map.Entry<Integer, Student> s : modelHash){
-//
-//        }
-
 
     }
 }

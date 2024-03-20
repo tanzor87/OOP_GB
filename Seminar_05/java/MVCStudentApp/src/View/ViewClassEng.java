@@ -6,6 +6,9 @@ import Model.Domain.Student;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Вариант класса ViewClass с текстом на английском языке
+ */
 public class ViewClassEng implements iGetView {
     public void printAllStudents(List<Student> students){
         System.out.println("--------List of students----------");

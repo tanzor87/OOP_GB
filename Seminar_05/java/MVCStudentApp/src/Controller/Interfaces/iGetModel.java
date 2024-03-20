@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface iGetModel {
     public List<Student> getAllStudents();
-//    public HashMap<Integer, Student> getAllStudentsHas();
+
 }
