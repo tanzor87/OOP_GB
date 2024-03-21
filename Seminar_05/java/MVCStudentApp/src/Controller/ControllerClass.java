@@ -92,6 +92,8 @@ public class ControllerClass {
                         Student s = it.next();
                         if (s.getName().equals(delName)){
                             it.remove();
+                        } else {
+                            System.out.println("Нет такого имени в списке!");
                         }
                     }
                     view.printAllStudents(buffer);
