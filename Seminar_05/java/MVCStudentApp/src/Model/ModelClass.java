@@ -3,11 +3,10 @@ package Model;
 import Controller.Interfaces.iGetModel;
 import Model.Domain.Student;
 
-import java.util.Iterator;
 import java.util.List;
 
 /**
- * Класс который хранит студентов
+ * Класс который хранит студентов в List<Student>
  */
 public class ModelClass implements iGetModel {
     private List<Student> students;
@@ -25,17 +24,20 @@ public class ModelClass implements iGetModel {
         return students;
     }
 
+    /**
+     * Метод удаляет студента по ID из списка типа List
+     * @param studentId - ID студента
+     */
     @Override
-    public boolean deleteStudent(String studentName) {
-        Iterator<Student> it = students.iterator();
-        while (it.hasNext()) {
-            Student s = it.next();
-            if (!s.getName().equals(studentName)) {
-                return false;
+    public boolean deleteStudent(Integer studentId) {
+        boolean removed = false;
+        for (int i = 0; i < students.size(); i++){
+            Student s = students.get(i);
+            if (s.getId() == studentId){
+                students.remove(i);
+                removed = true;
             }
-            it.remove();
         }
-
-        return true;
+        return removed;
     }
 }

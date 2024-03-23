@@ -7,30 +7,19 @@ import Model.Domain.Student;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Класс хранит студентов в HashMap
  */
 
 public class ModelClassHash implements iGetModel {
-//    private List<Student> students;
     private HashMap<Integer, Student> studentsHas;
 
     /**
      * Конструктор класса
-     * Не совсем понятно какие параметры в этот конструктор передавать
-     * Если я правильно понимаю, то в этом классе нам нужно списк студентов преобразовать в HashMap
-     * Возможно это как то так должно реализовываться
-     * @param students
-//     * @param studentsHas
+     * Преобразует List<Students> в HashMap<Integer, Student>
+     * @param students - список студентов
      */
-//    public ModelClassHash(List<Student> students, HashMap<Integer, Student> studentsHas) {
-////        this.students = students;
-//        this.studentsHas = studentsHas;
-//
-//    }
-
     public ModelClassHash(List<Student> students){
         this.studentsHas = new HashMap<>();
         for (Student person : students) {
@@ -38,16 +27,10 @@ public class ModelClassHash implements iGetModel {
         }
     }
 
-//    /**
-//     * Метод преобразует лист студентов в HashMap
-//     * @param students
-//     */
-//    public void studentHas(List<Student> students){
-//        for (Student person : students) {
-//            studentsHas.put(person.getId(), person);
-//        }
-//    }
-
+    /**
+     * Обратное преобразование HashMap<Integer, Student> в List<Students>
+     * @return
+     */
     @Override
     public List<Student> getAllStudents() {
         if (studentsHas == null) {
@@ -56,34 +39,20 @@ public class ModelClassHash implements iGetModel {
 
         List<Student> students = new ArrayList<Student>(studentsHas.values());
 
-//        for (Map.Entry<Integer, Student> s : studentsHas.entrySet()){
-//            Student person = new Student(s.getValue().getName(), s.getValue().getAge());
-//            students.add(person);
-//        }
         return students;
     }
 
     /**
-     * Удаление студента из HAshMap по его имени
-     * @param studentName - имя студента, которе требуется удалить
+     * Удаление студента из HAshMap по ID
+     * @param studentId -ID студента, которе требуется удалить
      */
     @Override
-    public boolean deleteStudent(String studentName) {
-        Integer idDel = null;
-        boolean flag = true;
-        for (Map.Entry<Integer, Student> s : studentsHas.entrySet()){
-            Integer id = s.getKey();
-            String name = s.getValue().getName();
-            System.out.println(id);
-
-            if (name.equals(studentName)){
-                idDel = id;
-            }else {
-                flag = false;
-            }
+    public boolean deleteStudent(Integer studentId) {
+        if (!studentsHas.containsKey(studentId)){
+            return false;
         }
-        studentsHas.remove(idDel);
-        return flag;
+        studentsHas.remove(studentId);
+        return true;
     }
 }
 

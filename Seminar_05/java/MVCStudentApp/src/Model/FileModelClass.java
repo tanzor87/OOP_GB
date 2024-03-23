@@ -59,8 +59,13 @@ public class FileModelClass implements iGetModel {
         return students;
     }
 
+    /**
+     * Метод удаления из файла по ID студента
+     * !!!!! Нужно реализовать!!!!!
+     * @param studentId - ID студента
+     */
     @Override
-    public boolean deleteStudent(String studentName) {
+    public boolean deleteStudent(Integer studentId) {
         return false;
     }
 }

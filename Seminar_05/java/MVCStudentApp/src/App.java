@@ -42,11 +42,6 @@ public class App {
          * 2. Сделан вариант класса ModelClassHash с хранилищем типа HashMap<int,Student>,
          * подключен к нему интерфейс iGetModel
          * 3. Добавлена команда DELETE в метод run класса контролер по удалению студента.
-         * Пока удаление студента реализованно по Имени. Так как в данный момент ID студента генерируется
-         * автоматически, то каждый раз при вызове метода printAllStudents ID обновляются, в результате чего мы
-         * получаем новые ID и не овсем ясно, какой номер вводить для удаления какого-либо студента.
-         * Как исправить данный баг, я пока не совсем понимаю, как вариант вводить ID вручную, что на мой взгляд
-         * не совсем рационально. Нужен более рациональный способ.
          */
 
         iGetView viewEng = new ViewClassEng();
@@ -54,7 +49,7 @@ public class App {
         ModelClassHash modelHash = new ModelClassHash(studentList);
         iGetModel model = new ModelClass(studentList);
 
-        ControllerClass controller = new ControllerClass(model, view, viewEng);
+        ControllerClass controller = new ControllerClass(modelHash, view, viewEng);
         controller.run();
 
 

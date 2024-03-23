@@ -3,9 +3,6 @@ package Controller;
 import Controller.Interfaces.iGetModel;
 import Controller.Interfaces.iGetView;
 import Model.Domain.Student;
-import Model.Domain.StudentIterator;
-import Model.ModelClass;
-import View.ViewClass;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -92,32 +89,17 @@ public class ControllerClass {
                     viewEng.printAllStudents(model.getAllStudents());
                     break;
                 case DELETE:
-                    String delName = view.prompt("Введите имя: ");
-                    if (model.deleteStudent(delName)){
-                        System.out.println("Студент с именем {" + delName +
+                    int delID = Integer.parseInt(view.prompt("Введите ID студента: "));
+                    if (model.deleteStudent(delID)){
+                        System.out.println("Студент с ID {" + delID +
                                 "} удален!"
                                 );
                     } else {
-                        System.out.println("Студент с именем {" + delName +
+                        System.out.println("Студент с ID {" + delID +
                                 "} отсутсвует в списке!"
                         );
                     }
                     break;
-
-
-
-//                    buffer = model.getAllStudents();
-//
-//                    Iterator<Student> it = buffer.iterator();
-//                    while (it.hasNext()) {
-//                        Student s = it.next();
-//                        if (s.getName().equals(delName)){
-//                            it.remove();
-//                        } else {
-//                            System.out.println("Нет такого имени в списке!");
-//                        }
-//                    }
-//                    view.printAllStudents(buffer);
             }
         }
     }
