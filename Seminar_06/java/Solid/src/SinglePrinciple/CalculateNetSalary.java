@@ -1,4 +1,4 @@
-package Employee;
+package SinglePrinciple;
 
 public class CalculateNetSalary {
     private int baseSalary;

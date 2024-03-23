@@ -1,4 +1,4 @@
-package Employee;
+package SinglePrinciple;
 
 import java.util.Date;
 
@@ -8,7 +8,6 @@ public class Employee{
     public Employee(String name, Date dob) {
         this.name = name;
         this.dob = dob;
-//        this.baseSalary = baseSalary;
     }
     public String getEmpInfo() {
         return "name - " + name + " , dob - " + dob.toString();

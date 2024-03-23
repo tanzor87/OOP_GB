@@ -1,4 +1,4 @@
-package Calculation;
+package OpenClosePrinciple;
 
 public class SpeedCalculation<V extends Vehicle>{
 

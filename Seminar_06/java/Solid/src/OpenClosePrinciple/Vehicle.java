@@ -1,4 +1,4 @@
-package Calculation;
+package OpenClosePrinciple;
 
 public class Vehicle {
     int maxSpeed;

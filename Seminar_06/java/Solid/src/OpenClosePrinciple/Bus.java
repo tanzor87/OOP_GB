@@ -1,4 +1,4 @@
-package Calculation;
+package OpenClosePrinciple;
 
 public class Bus extends Vehicle{
     private int numberOfPass;

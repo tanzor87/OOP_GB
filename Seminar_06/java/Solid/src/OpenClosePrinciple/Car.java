@@ -1,4 +1,4 @@
-package Calculation;
+package OpenClosePrinciple;
 
 public class Car extends Vehicle {
     private int horsePower;
