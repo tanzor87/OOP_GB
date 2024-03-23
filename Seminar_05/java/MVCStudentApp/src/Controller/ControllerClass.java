@@ -74,7 +74,7 @@ public class ControllerClass {
         while (getNewIteration) {
             System.out.println("Список Команд:\n" +
                     "list - список студентов\n" +
-                    "listEng - список студентов на английском" +
+                    "listEng - список студентов на английском\n" +
                     "delete - удаление студентов из списка\n" +
                     "exit -  Выход из программы\n");
             String command = view.prompt("Введите команду: ");
