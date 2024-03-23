@@ -1,5 +1,8 @@
 package OpenClosePrinciple;
 
+/**
+ * транспортное средство типа автомобиль
+ */
 public class Car extends Vehicle {
     private int horsePower;
 

@@ -1,5 +1,8 @@
 package InterfacePrinciple;
 
+/**
+ * Класс Куб, позволяет расссчитать объем и площадь куба
+ */
 public class Cube implements iVolume, iArea {
     private int edge;
     public Cube(int edge) {

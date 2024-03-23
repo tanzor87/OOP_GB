@@ -1,5 +1,9 @@
 package OpenClosePrinciple;
 
+/**
+ * Класс позволяет рассчитать допустимуб скорость в зависимости от типа транспортного средства
+ * @param <V>
+ */
 public class SpeedCalculation<V extends Vehicle>{
 
     public double calculateAllowedSpeed(V vehicle) {

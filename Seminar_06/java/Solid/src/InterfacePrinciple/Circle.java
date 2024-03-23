@@ -1,5 +1,8 @@
 package InterfacePrinciple;
 
+/**
+ * клас круг, позволяет расчитать площадь круга
+ */
 public class Circle implements iArea {
     private double radius;
     public Circle(double radius) {

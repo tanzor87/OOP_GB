@@ -2,6 +2,9 @@ package SinglePrinciple;
 
 import java.util.Date;
 
+/**
+ * Класс позволяет получить информацию о сотруднике
+ */
 public class Employee{
     private String name;
     private Date dob;

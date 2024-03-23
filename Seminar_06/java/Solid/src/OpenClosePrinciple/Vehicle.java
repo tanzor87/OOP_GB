@@ -1,5 +1,8 @@
 package OpenClosePrinciple;
 
+/**
+ * Класс устанавливает максимальную скорость и тип транспортного средства
+ */
 public class Vehicle {
     int maxSpeed;
     String type;

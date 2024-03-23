@@ -1,5 +1,8 @@
 package OpenClosePrinciple;
 
+/**
+ * транспортное средство типа автобус
+ */
 public class Bus extends Vehicle{
     private int numberOfPass;
 

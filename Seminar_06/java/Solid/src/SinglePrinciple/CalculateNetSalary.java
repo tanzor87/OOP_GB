@@ -1,5 +1,8 @@
 package SinglePrinciple;
 
+/**
+ * Класс вычисления зарплаты сотрудника
+ */
 public class CalculateNetSalary {
     private int baseSalary;
 
