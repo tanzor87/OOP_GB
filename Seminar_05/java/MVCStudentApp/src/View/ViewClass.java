@@ -24,11 +24,4 @@ public class ViewClass implements iGetView {
         System.out.println(msg);
         return in.nextLine();
     }
-
-    @Override
-    public String nameInput(String name) {
-        Scanner in = new Scanner(System.in);
-        System.out.println(name);
-        return in.nextLine();
-    }
 }

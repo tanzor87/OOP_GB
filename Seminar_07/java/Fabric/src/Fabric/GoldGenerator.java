@@ -1,2 +1,4 @@
-package Fabric;public class GoldGenerator {
+package Fabric;
+
+public class GoldGenerator extends  {
 }

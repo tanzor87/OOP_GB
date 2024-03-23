@@ -58,4 +58,9 @@ public class FileModelClass implements iGetModel {
 
         return students;
     }
+
+    @Override
+    public boolean deleteStudent(String studentName) {
+        return false;
+    }
 }

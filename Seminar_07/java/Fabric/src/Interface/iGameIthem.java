@@ -1,2 +1,5 @@
-package Interface;public interface iGameIthem {
+package Interface;
+
+public interface iGameIthem {
+    void open();
 }

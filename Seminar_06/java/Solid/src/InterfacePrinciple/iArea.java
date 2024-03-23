@@ -1,2 +1,5 @@
-package InterfacePrinciple;public interface Area {
+package InterfacePrinciple;
+
+public interface iArea {
+    public double area();
 }

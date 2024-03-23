@@ -1,2 +1,4 @@
-package LiskovPrinciple;public class Rectangle {
+package LiskovPrinciple;
+
+public class Rectangle {
 }

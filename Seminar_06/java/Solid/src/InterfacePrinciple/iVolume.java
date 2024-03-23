@@ -1,2 +1,5 @@
-package InterfacePrinciple;public interface iVolume {
+package InterfacePrinciple;
+
+public interface iVolume {
+    public double volume();
 }
