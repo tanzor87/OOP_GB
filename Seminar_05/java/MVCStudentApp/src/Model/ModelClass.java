@@ -3,6 +3,7 @@ package Model;
 import Controller.Interfaces.iGetModel;
 import Model.Domain.Student;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -22,5 +23,19 @@ public class ModelClass implements iGetModel {
 
     public List<Student> getAllStudents(){
         return students;
+    }
+
+    @Override
+    public boolean deleteStudent(String studentName) {
+        Iterator<Student> it = students.iterator();
+        while (it.hasNext()) {
+            Student s = it.next();
+            if (!s.getName().equals(studentName)) {
+                return false;
+            }
+            it.remove();
+        }
+
+        return true;
     }
 }

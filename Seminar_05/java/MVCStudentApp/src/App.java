@@ -15,7 +15,6 @@ import java.util.Map;
 
 public class App {
     public static void main(String[] args) {
-
         Student student1 = new Student("Ivan", 22);
         Student student2 = new Student("Oleg", 23);
         Student student3 = new Student("Petr", 20);
@@ -50,16 +49,25 @@ public class App {
          * не совсем рационально. Нужен более рациональный способ.
          */
 
-        HashMap<Integer, Student> studentsHas = new HashMap<>();
-        ModelClassHash modelHash = new ModelClassHash(studentList, studentsHas);
-        modelHash.studentHas(studentList);
+        iGetView viewEng = new ViewClassEng();
+        iGetView view = new ViewClass();
+        ModelClassHash modelHash = new ModelClassHash(studentList);
+        iGetModel model = new ModelClass(studentList);
 
-        iGetView view = new ViewClassEng();
-
-        ControllerClass controller = new ControllerClass(modelHash, view);
-        controller.update();
-
+        ControllerClass controller = new ControllerClass(model, view, viewEng);
         controller.run();
+
+
+//        HashMap<Integer, Student> studentsHas = new HashMap<>();
+//        ModelClassHash modelHash = new ModelClassHash(studentList, studentsHas);
+//        modelHash.studentHas(studentList);
+//
+//        iGetView view = new ViewClassEng();
+//
+//        ControllerClass controller = new ControllerClass(modelHash, view);
+//        controller.update();
+//
+//        controller.run();
 
 //        ModelClass model = new ModelClass(studentList);
 //        ViewClass view = new ViewClass();

@@ -10,6 +10,10 @@ import java.util.Scanner;
  * Вариант класса ViewClass с текстом на английском языке
  */
 public class ViewClassEng implements iGetView {
+    /**
+     * Класс вывода студентов из списка на английском языке
+     * @param students - список студентов
+     */
     public void printAllStudents(List<Student> students){
         System.out.println("--------List of students----------");
         for (Student s :students){
@@ -25,10 +29,5 @@ public class ViewClassEng implements iGetView {
         return in.nextLine();
     }
 
-    @Override
-    public String nameInput(String name) {
-        Scanner in = new Scanner(System.in);
-        System.out.println(name);
-        return in.nextLine();
-    }
+
 }

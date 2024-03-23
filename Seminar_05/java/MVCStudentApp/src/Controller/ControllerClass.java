@@ -25,21 +25,22 @@ public class ControllerClass {
      */
 //    private ViewClass view;
     private iGetView view;
-
+    private iGetView viewEng;
     /**
      * Буфер
      */
     private List<Student> buffer = new ArrayList<>();
 
     /**
-     * Конструктор класса
+     * Конструктор класса для инециализации Controller с сылками на классы Model и View
      * @param model
      * @param view
      */
 //    public ControllerClass(ModelClass model, ViewClass view) {
-    public ControllerClass(iGetModel model, iGetView view) {
+    public ControllerClass(iGetModel model, iGetView view, iGetView viewEng) {
         this.model = model;
         this.view = view;
+        this.viewEng = viewEng;
     }
 
     private boolean testData(List<Student> students){
@@ -59,7 +60,6 @@ public class ControllerClass {
         buffer = model.getAllStudents();
         if (testData(buffer)) {
             view.printAllStudents(buffer);
-//            view.printAllStudentsEng(buffer);
         } else {
             System.out.println("Список студентов пуст!");
         }
@@ -72,6 +72,11 @@ public class ControllerClass {
         Command com = Command.NONE;
         boolean getNewIteration = true;
         while (getNewIteration) {
+            System.out.println("Список Команд:\n" +
+                    "list - список студентов\n" +
+                    "listEng - список студентов на английском\n" +
+                    "delete - удаление студентов из списка\n" +
+                    "exit -  Выход из программы\n");
             String command = view.prompt("Введите команду: ");
             com = Command.valueOf(command.toUpperCase());
             switch (com) {
@@ -83,20 +88,36 @@ public class ControllerClass {
                     //MVC
                     view.printAllStudents(model.getAllStudents());
                     break;
+                case LISTENG:
+                    viewEng.printAllStudents(model.getAllStudents());
+                    break;
                 case DELETE:
-                    String delName = view.nameInput("Введите имя: ");
-                    buffer = model.getAllStudents();
-
-                    Iterator<Student> it = buffer.iterator();
-                    while (it.hasNext()) {
-                        Student s = it.next();
-                        if (s.getName().equals(delName)){
-                            it.remove();
-                        } else {
-                            System.out.println("Нет такого имени в списке!");
-                        }
+                    String delName = view.prompt("Введите имя: ");
+                    if (model.deleteStudent(delName)){
+                        System.out.println("Студент с именем {" + delName +
+                                "} удален!"
+                                );
+                    } else {
+                        System.out.println("Студент с именем {" + delName +
+                                "} отсутсвует в списке!"
+                        );
                     }
-                    view.printAllStudents(buffer);
+                    break;
+
+
+
+//                    buffer = model.getAllStudents();
+//
+//                    Iterator<Student> it = buffer.iterator();
+//                    while (it.hasNext()) {
+//                        Student s = it.next();
+//                        if (s.getName().equals(delName)){
+//                            it.remove();
+//                        } else {
+//                            System.out.println("Нет такого имени в списке!");
+//                        }
+//                    }
+//                    view.printAllStudents(buffer);
             }
         }
     }

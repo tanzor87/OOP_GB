@@ -1,7 +1,8 @@
 package Calculation;
 
-public class SpeedCalculation {
-    public double calculateAllowedSpeed(Vehicle vehicle) {
+public class SpeedCalculation<V extends Vehicle>{
+
+    public double calculateAllowedSpeed(V vehicle) {
         if (vehicle.getType().equalsIgnoreCase("Car")) {
             return vehicle.getMaxSpeed() * 0.8;
         } else if (vehicle.getType().equalsIgnoreCase("Bus")) {
