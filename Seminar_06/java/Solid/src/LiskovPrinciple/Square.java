@@ -1,16 +1,13 @@
 package LiskovPrinciple;
 
-public class Square extends Rectangle{
-
-    @Override
-    public void setWidth(int width) {
-        super.setWidth(width);
-        super.setHeight(width);
+public class Square extends Quadrangle{
+    private int length;
+    public Square(int length) {
+        this.length = length;
     }
 
     @Override
-    public void setHeight(int height) {
-        super.setHeight(height);
-        super.setWidth(height);
+    public int area() {
+        return this.length * this.length;
     }
 }
