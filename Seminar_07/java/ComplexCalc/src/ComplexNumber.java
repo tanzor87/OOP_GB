@@ -25,9 +25,15 @@ public class ComplexNumber {
 
     @Override
     public String toString() {
+        if (numIm < 0) {
+            return "(" +
+                    numRe + " - " +
+                    -numIm + "i" +
+                    ')';
+        }
         return "(" +
-                numRe + " + i" +
-                numIm +
+                numRe + " + " +
+                numIm + "i" +
                 ')';
     }
 }

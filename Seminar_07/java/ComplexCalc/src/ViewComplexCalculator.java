@@ -14,7 +14,7 @@ public class ViewComplexCalculator {
             ComplexNumber num1 = new ComplexNumber(numReal1, numImag1);
             calculator.sum(num1);
             while (true) {
-                String cmd = prompt("Введите команду (*, +, =) : ");
+                String cmd = prompt("Введите команду (*, +, =): ");
                 if (cmd.equals("+")) {
                     int numReal2 = promptInt("Введите действительную часть второго аргумента: ");
                     int numImag2 = promptInt("Введите мнимую часть второго аргумента: ");
